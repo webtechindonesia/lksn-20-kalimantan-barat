@@ -33,9 +33,9 @@ add_action('login_head', function () { ?>
         }
 
         #login h1 a {
-            background-image: url('<?= DIR ?>/images/Group 1.png'),
-                url('<?= DIR ?>/images/jakpos.gif'),
-                url('<?= DIR ?>/images/vice.png') !important;
+            background-image: url('<?= DIR ?>/images/Group 1.png') !important;
+            background-size: 100% !important;
+            width: 100% !important;
         }
     </style>
 <?php  });
