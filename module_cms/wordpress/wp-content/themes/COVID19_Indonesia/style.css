@@ -11,6 +11,11 @@ Template: blankslate
   font-family: "Segoe UI" !important;
 }
 
+:root {
+  --primary: #f32657;
+  --bg: #252525;
+}
+
 a {
   text-decoration: none;
 }
@@ -29,6 +34,177 @@ img {
 }
 
 .container {
-  max-width: 100%;
+  max-width: 85%;
   margin: auto;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+header {
+  height: 80px;
+  background: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
+}
+
+body.admin-bar {
+  top: 32px;
+}
+
+#admin-bar {
+  position: fixed;
+}
+
+header *:not(.logo) {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 70px;
+  width: 200px;
+}
+
+nav {
+  width: 100%;
+  justify-content: space-between;
+}
+
+header a {
+  color: white;
+}
+
+.banner {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.banner .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.text {
+  line-height: 1.6;
+  text-align: center;
+}
+
+.text p {
+  margin: 5px 0 25px;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 14px 32px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.section-content {
+  line-height: 1.7;
+}
+
+.small {
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.news-section {
+  background: #ca1b45;
+  color: white;
+}
+
+.news {
+  margin: 30px 0;
+  display: flex;
+  background: var(--primary);
+}
+
+.news * {
+  flex: 1;
+}
+
+.text-white {
+  color: white;
+}
+
+.news a {
+  color: white;
+}
+
+.news-cover {
+  height: 250px;
+}
+
+.btn.white {
+  background: white;
+  color: var(--primary);
+}
+
+.news-text {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  padding: 10px;
+  color: white;
+  background: var(--bg);
+  text-align: centerl;
+}
+
+@media screen and (max-width: 567px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
 }

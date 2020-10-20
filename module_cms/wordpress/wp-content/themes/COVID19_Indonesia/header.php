@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.css">
 </head>
 
-<body>
+<body <?php body_class() ?>>
 
     <?php wp_head() ?>
 
@@ -18,7 +18,7 @@
             <nav>
                 <div class="logo"></div>
                 <ul class="menu">
-                    <li><a href="<?= get_home_url() ?>">Homee</a></li>
+                    <li><a href="<?= get_home_url() ?>">Home</a></li>
                 </ul>
             </nav>
         </div>
