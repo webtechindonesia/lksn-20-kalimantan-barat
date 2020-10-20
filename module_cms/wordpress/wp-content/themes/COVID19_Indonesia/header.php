@@ -23,15 +23,11 @@
                 <div class="logo"></div>
                 <ul class="menu">
                     <li><a href="<?= get_home_url() ?>">Home</a></li>
-                    <?php
-                    $cats = get_term('category');
-                    print_r($cats);
-                    // foreach ($cats as $cat) :
-                    //     if ($cat->name == 'Uncategorized') continue;
-                    ?>
-                    <li><a href="#"><?php $cat->name ?></a></li>
-                    <?php //endforeach 
-                    ?>
+                    <li><a href="<?= get_home_url() ?>">News Updates</a></li>
+                    <li><a href="<?= get_home_url() ?>">COVID-19 Events</a></li>
+                    <li><a href="<?= get_home_url() ?>">CNN Indonesia</a></li>
+                    <li><a href="<?= get_home_url() ?>">The Jakarta Post</a></li>
+                    <li><a href="<?= get_home_url() ?>">VICE Indonesia</a></li>
                 </ul>
             </nav>
         </div>

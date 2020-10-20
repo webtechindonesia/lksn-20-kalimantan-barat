@@ -1,5 +1,6 @@
 <?php get_header() ?>
-<?php if (have_posts()) : while (have_posts()) : the_post() ?>
+<?php if (have_posts()) :
+    while (have_posts()) : the_post() ?>
         <section class="single">
             <div class="container">
                 <div class="section-title">
@@ -10,7 +11,8 @@
                 </div>
             </div>
         </section>
-<?php wp_reset_postdata();
+<?php
+        wp_reset_postdata();
     endwhile;
 endif ?>
 <?php get_footer() ?>

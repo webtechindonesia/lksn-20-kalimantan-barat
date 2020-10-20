@@ -50,17 +50,25 @@
             </div>
             <div class="section-content">
                 <div class="card-group">
-                    <div class="card">
-                        <div class="card-img">
-                            <img src="<?= DIR ?>/images/banner.jpg" alt="Image">
-                        </div>
-                        <div class="card-body">
-                            <div class="card-title">Title</div>
-                            <div class="card-content">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, aut.
+                    <?php
+                    $query = new WP_Query(['post_type' => 'events']);
+                    if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post()
+                    ?>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="<?= get_the_post_thumbnail_url() ?>" alt="Image">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title"><?php the_title() ?></div>
+                                    <div class="card-content">
+                                        <?php the_excerpt() ?>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                    <?php wp_reset_postdata();
+                        endwhile;
+                    endif ?>
                 </div>
             </div>
         </div>

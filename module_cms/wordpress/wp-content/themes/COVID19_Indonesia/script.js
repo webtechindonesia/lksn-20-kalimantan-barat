@@ -13,20 +13,12 @@
       beforeSend: () => {
         $(".transition").removeClass("out");
       },
-    })
-      .done((res) => {
-        scrollTo(0, 0);
-        history.pushState(null, null, href);
-        document.open();
-        document.write(res);
-        documen.close();
-      })
-      .fail((res) => {
-        scrollTo(0, 0);
-        history.pushState(null, null, href);
-        document.open();
-        document.write(res);
-        documen.close();
-      });
+    }).done((res) => {
+      scrollTo(0, 0);
+      history.pushState(null, null, href);
+      document.open();
+      document.write(res);
+      document.close();
+    });
   });
 })(jQuery);
