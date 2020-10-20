@@ -147,10 +147,10 @@ section {
 }
 
 .small {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .news-section {
@@ -192,11 +192,44 @@ section {
   justify-content: center;
 }
 
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  width: calc(100% / 3 - 2rem);
+  margin: 12px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  height: 150px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.card-content {
+  color: rgb(121, 121, 121);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
 footer {
   padding: 10px;
   color: white;
   background: var(--bg);
-  text-align: centerl;
+  text-align: center;
 }
 
 @media screen and (max-width: 567px) {

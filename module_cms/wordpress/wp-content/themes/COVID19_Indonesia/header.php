@@ -19,6 +19,15 @@
                 <div class="logo"></div>
                 <ul class="menu">
                     <li><a href="<?= get_home_url() ?>">Home</a></li>
+                    <?php
+                    $cats = get_term('category');
+                    print_r($cats);
+                    // foreach ($cats as $cat) :
+                    //     if ($cat->name == 'Uncategorized') continue;
+                    ?>
+                    <li><a href="#"><?php $cat->name ?></a></li>
+                    <?php //endforeach 
+                    ?>
                 </ul>
             </nav>
         </div>

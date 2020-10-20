@@ -33,5 +33,29 @@
             </div>
         </div>
     </section>
+
+    <section class="event-section">
+        <div class="container">
+            <div class="section-title">
+                <div class="small text-primary bold">Our newest events</div>
+                <h2>Event</h2>
+            </div>
+            <div class="section-content">
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="<?= DIR ?>/images/banner.jpg" alt="Image">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Title</div>
+                            <div class="card-content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, aut.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 <?php get_footer() ?>
