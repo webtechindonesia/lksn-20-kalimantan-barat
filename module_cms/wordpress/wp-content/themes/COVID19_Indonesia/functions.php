@@ -34,8 +34,6 @@ add_action('login_head', function () { ?>
 
         #login h1 a {
             background-image: url('<?= DIR ?>/images/Group 1.png') !important;
-            background-size: 100% !important;
-            width: 100% !important;
         }
     </style>
 <?php  });
