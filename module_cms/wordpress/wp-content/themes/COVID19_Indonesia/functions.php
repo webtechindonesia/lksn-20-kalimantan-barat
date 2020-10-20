@@ -8,7 +8,7 @@ add_action('init', function () {
         'public' => true,
         'supports' => ['title', 'editor', 'thumbnail'],
         'taxonomies' => ['category'],
-        'rewrite' => ['slug' => '/news/%cat%']
+        // 'rewrite' => ['slug' => '/news/%cat%']
     ]);
 
     register_post_type('events', [
@@ -16,6 +16,8 @@ add_action('init', function () {
         'public' => true,
         'supports' => ['title', 'editor', 'thumbnail'],
     ]);
+
+    // add_rewrite_rule('^news/(.*)/(.*)', 'index.php?post_type=news&name=$matches[2]', 'top');
 });
 
 add_action('wp_dashboard_setup', function () {
@@ -35,3 +37,17 @@ add_action('login_head', function () { ?>
         }
     </style>
 <?php  });
+
+add_filter('excerpt_length', function ($length) {
+    return 15;
+});
+
+// add_action('post_type_link', function ($link, $id = 0) {
+//     $post = get_post($id);
+//     if (is_object($post)) {
+//         $term = wp_get_post_terms($post->ID, 'category');
+//         return str_replace('%cat%', $term[0]->slug, $link);
+//     }
+
+//     return $link;
+// });

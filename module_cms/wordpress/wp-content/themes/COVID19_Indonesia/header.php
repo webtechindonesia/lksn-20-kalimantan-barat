@@ -13,6 +13,10 @@
 
     <?php wp_head() ?>
 
+    <div class="transition">
+        <div></div>
+    </div>
+
     <header>
         <div class="container">
             <nav>

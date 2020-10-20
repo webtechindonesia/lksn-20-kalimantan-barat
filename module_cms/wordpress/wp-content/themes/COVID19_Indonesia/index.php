@@ -20,15 +20,23 @@
             </div>
             <div class="section-content">
                 <div class="news-group">
-                    <article class="news">
-                        <div class="news-text">
-                            <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque dolorem temporibus amet, mollitia eos totam?</p>
-                        </div>
-                        <div class="news-cover">
-                            <img src="<?= DIR ?>/images/banner.jpg" alt="banner">
-                        </div>
-                    </article>
+                    <?php
+                    $query = new WP_Query(['post_type' => 'news']);
+                    if ($query->have_posts()) :
+                        while ($query->have_posts()) : $query->the_post()
+                    ?>
+                            <article class="news">
+                                <div class="news-text">
+                                    <h3><a href="<?= get_the_permalink() ?>"><?php the_title() ?></a></h3>
+                                    <p><?php the_excerpt() ?></p>
+                                </div>
+                                <div class="news-cover">
+                                    <img src="<?= get_the_post_thumbnail_url() ?>" alt="banner">
+                                </div>
+                            </article>
+                    <?php wp_reset_postdata();
+                        endwhile;
+                    endif; ?>
                 </div>
             </div>
         </div>

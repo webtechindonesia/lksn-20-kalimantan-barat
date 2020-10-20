@@ -11,6 +11,8 @@
 
 <?php wp_footer() ?>
 
+<script src="<?= DIR ?>/script.js"></script>
+
 </body>
 
 </html>
