@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB Slider</title>
+    <style>
+        .container {
+            width: 500px;
+        }
+        .bg {
+            background: white;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-family: 'Arial';
+            font-weight: bold;
+        }
+        .sliders {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            width: 100%;
+            height: 15px;
+            margin: 15px 0 15px 0;
+            background: #d3d3d3;
+            -webkit-appearance: none;
+            outline: none;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            box-shadow: 0 3px 4px 0px darkgrey;
+        }
+        input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 36px;
+            border: 1px solid black;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg"></div>
+        <div class="sliders">
+            <input type="range" name="red" id="red" onchange="colorsChange()">
+            <input type="range" name="green" id="green" onchange="colorsChange()">
+            <input type="range" name="blue" id="blue" onchange="colorsChange()">
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
