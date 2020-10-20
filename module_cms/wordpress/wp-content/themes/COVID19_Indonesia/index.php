@@ -4,8 +4,8 @@
         <div class="overlay">
             <div class="container">
                 <div class="text">
-                    <h1>Lorem ipsum dolor sit amet.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ratione vel molestias unde dolore expedita!</p>
+                    <h1>Berantas COVID dari Indonesia</h1>
+                    <p>Mari bersama sama lwaan COVID dan jaga kesehatan dengan menggunakan hand sanizter dan mencuci tangan setiap hari</p>
                     <button class="btn">See more</button>
                 </div>
             </div>

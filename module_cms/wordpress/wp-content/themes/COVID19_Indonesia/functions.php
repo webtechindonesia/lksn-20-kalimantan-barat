@@ -51,3 +51,11 @@ add_action('post_type_link', function ($link, $id = 0) {
 
     return $link;
 });
+
+
+add_action('site_url', function ($link) {
+    $old = '/wp-admin/';
+    $new = 'admin';
+
+    return preg_replace($old, $new, $link);
+});
