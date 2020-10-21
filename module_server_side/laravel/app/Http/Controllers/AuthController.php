@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use JWTAuth;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -23,13 +24,19 @@ class AuthConctroller extends Controller
 
         $credential = $request->only(['username', 'password']);
 
-        try {
-            if (!$token = JWTAuth::attempt($credential)) {
-                return response()->json(['error' => 'unauthorized'], 401);
-            }
-        } catch (JWTException $e) {
-            return response()->json(['message' => 'err'], 401);
+        if (!$token = Auth::attempt($credential)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
+
+        return $this->respondWithToken($token);
+
+        // try {
+        //     if (!$token = JWTAuth::attempt($credential)) {
+        //         return response()->json(['error' => 'unauthorized'], 401);
+        //     }
+        // } catch (JWTException $e) {
+        //     return response()->json(['message' => 'err'], 401);
+        // }
 
         // return response()->json([
         //     'token' => $token,

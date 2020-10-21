@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login');
+});
+
 Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'delete']);
 Route::post('poll/{poll}/vote/{choice}', 'PollController@vote');
