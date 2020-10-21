@@ -13,49 +13,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\User;
-use App\Division;
+// use App\User;
+// use App\Division;
 
-Route::get('/', function () {
-    // return view('welcome');
-    for ($i = 1; $i <= 5; $i++) {
-        User::create([
-            'username' => "payment_$i",
-            'password' => bcrypt("payment_$i"),
-            'role' => 'user',
-            'division_id' => 1
-        ]);
-    }
-    for ($i = 1; $i <= 3; $i++) {
-        User::create([
-            'username' => "procurement_$i",
-            'password' => bcrypt("procurement_$i"),
-            'role' => 'user',
-            'division_id' => 2
-        ]);
-    }
-    for ($i = 1; $i <= 7; $i++) {
-        User::create([
-            'username' => "it_$i",
-            'password' => bcrypt("it_$i"),
-            'role' => 'user',
-            'division_id' => 3
-        ]);
-    }
-    for ($i = 1; $i <= 3; $i++) {
-        User::create([
-            'username' => "finance_$i",
-            'password' => bcrypt("finance_$i"),
-            'role' => 'user',
-            'division_id' => 4
-        ]);
-    }
-    for ($i = 1; $i <= 3; $i++) {
-        User::create([
-            'username' => "hr_$i",
-            'password' => bcrypt("hr_$i"),
-            'role' => 'admin',
-            'division_id' => 5
-        ]);
-    }
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     for ($i = 1; $i <= 5; $i++) {
+//         User::create([
+//             'username' => "payment_$i",
+//             'password' => bcrypt("payment_$i"),
+//             'role' => 'user',
+//             'division_id' => 1
+//         ]);
+//     }
+//     for ($i = 1; $i <= 3; $i++) {
+//         User::create([
+//             'username' => "procurement_$i",
+//             'password' => bcrypt("procurement_$i"),
+//             'role' => 'user',
+//             'division_id' => 2
+//         ]);
+//     }
+//     for ($i = 1; $i <= 7; $i++) {
+//         User::create([
+//             'username' => "it_$i",
+//             'password' => bcrypt("it_$i"),
+//             'role' => 'user',
+//             'division_id' => 3
+//         ]);
+//     }
+//     for ($i = 1; $i <= 3; $i++) {
+//         User::create([
+//             'username' => "finance_$i",
+//             'password' => bcrypt("finance_$i"),
+//             'role' => 'user',
+//             'division_id' => 4
+//         ]);
+//     }
+//     for ($i = 1; $i <= 3; $i++) {
+//         User::create([
+//             'username' => "hr_$i",
+//             'password' => bcrypt("hr_$i"),
+//             'role' => 'admin',
+//             'division_id' => 5
+//         ]);
+//     }
+// });
