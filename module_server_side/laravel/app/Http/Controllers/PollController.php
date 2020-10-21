@@ -17,6 +17,7 @@ class PollController extends Controller
 {
     public function index()
     {
+        return Poll::all();
     }
 
     public function store(Request $request)
