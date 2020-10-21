@@ -10,22 +10,22 @@ class Poll extends Model
 
     protected $with = ['choices'];
 
-    protected $hidden = ['creator', 'updated_at'];
+    protected $hidden = ['user', 'updated_at'];
 
-    protected $appends = ['creator_username'];
+    protected $appends = ['creator'];
 
     public function choices()
     {
         return $this->hasMany(Choice::class);
     }
 
-    public function creator()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function getCreatorUsernameName()
+    public function getCreatorAttribute()
     {
-        return $this->creator->username;
+        return $this->user->username;
     }
 }

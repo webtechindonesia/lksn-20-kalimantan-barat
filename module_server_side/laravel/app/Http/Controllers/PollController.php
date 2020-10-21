@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Poll;
 use App\Vote;
+use JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Choice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\JWTAuth as JWTAuthJWTAuth;
 
 class PollController extends Controller
 {
@@ -28,7 +31,7 @@ class PollController extends Controller
             return response()->json(['message' => 'Invalid field'], 422);
 
         $param = $request->only(['title', 'description', 'deadline']);
-        return response()->json(Auth::user());
+
         $param['created_by'] = Auth::user()->id;
 
         $poll = Poll::create($param);
@@ -45,6 +48,7 @@ class PollController extends Controller
 
     public function show(Poll $poll)
     {
+        return $poll->with('choices')->find($poll->id);
     }
 
     public function vote(Poll $poll, Choice $choice)

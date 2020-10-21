@@ -25,5 +25,5 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('reset_password', 'AuthController@reset')->middleware('api');
 });
 
-Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'destroy']);
+Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'destroy'])->middleware('api');
 Route::post('poll/{poll}/vote/{choice}', 'PollController@vote');
