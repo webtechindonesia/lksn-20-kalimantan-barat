@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('me', 'AuthController@me');
+    Route::post('reset_password', 'AuthController@reset')->middleware('api');
 });
 
-Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'delete']);
+Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'destroy']);
 Route::post('poll/{poll}/vote/{choice}', 'PollController@vote');
