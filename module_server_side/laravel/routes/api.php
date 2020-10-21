@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('poll', 'PollController');
+Route::resource('poll', 'PollController')->only(['index', 'show', 'store', 'delete']);
+Route::post('poll/{poll}/vote/{choice}', 'PollController@vote');

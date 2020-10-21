@@ -12,7 +12,7 @@ class Poll extends Model
 
     protected $hidden = ['creator', 'updated_at'];
 
-    protected $appends = ['creator'];
+    protected $appends = ['creator_username'];
 
     public function choices()
     {
@@ -22,5 +22,10 @@ class Poll extends Model
     public function creator()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getCreatorUsernameName()
+    {
+        return $this->creator->username;
     }
 }

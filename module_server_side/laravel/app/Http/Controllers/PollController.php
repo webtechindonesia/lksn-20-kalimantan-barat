@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class PollController extends Controller
 {
+    public function index()
+    {
+    }
+
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
@@ -33,5 +37,20 @@ class PollController extends Controller
         }
 
         return response()->json($poll, 200);
+    }
+
+    public function show(Poll $poll)
+    {
+    }
+
+    public function vote(Poll $poll, Choice $choice)
+    {
+    }
+
+    public function delete(Poll $poll)
+    {
+        $poll->delete();
+
+        return response()->json(['message' => 'delete succes'], 200);
     }
 }
