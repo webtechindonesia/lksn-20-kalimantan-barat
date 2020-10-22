@@ -13,6 +13,8 @@ class Game {
 
     this.isNew = false;
 
+    this.highScore = localStorage.getItem("phyton_score") || 0;
+
     this.init();
     this.listener();
   }
@@ -206,8 +208,16 @@ class Game {
       let b = this.snake.body[i];
       if (this.snake.body[0].x == b.x && this.snake.body[0].y == b.y) {
         // console.log([this.snake.body[0].x, b.x], [this.snake.body[0].y, b.y]);
+        let localScore = localStorage.getItem("phyton_score") || 0;
+        if (game.score > localScore) {
+          localStorage.setItem("phyton_score", game.score);
+        }
         clearInterval(gameInterval);
-        alert(`Game Over: High Score: ${this.score}`);
+        if (confirm(`Game Over: High Score: ${this.score}! Play again?`)) {
+          location.reload();
+        } else {
+          location.reload();
+        }
       }
     }
   }

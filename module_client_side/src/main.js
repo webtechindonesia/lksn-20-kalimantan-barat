@@ -17,6 +17,8 @@ const rewindBtn = document.querySelector("#rewind");
 const cancelBtn = document.querySelector("#cancel");
 const rewindContainer = document.querySelector("#rewind-container");
 
+const range = document.querySelector("#range");
+
 const ver = 48;
 const hor = 30;
 
@@ -67,3 +69,22 @@ function pad(val) {
   if (value.length < 2) return `0${value}`;
   return value;
 }
+
+// let saveGame;
+// let data = {};
+// let counter = 0;
+// saveGame = setInterval(() => {
+//   counter = (counter % 5) + 1;
+//   data[counter] = Object.assign(
+//     Object.create(Object.getPrototypeOf(game)),
+//     game
+//   );
+// }, 1000);
+
+range.addEventListener("change", (e) => {
+  // let val = e.target.value;
+  // console.log(data);
+  // game = data[val];
+  // console.log(data[val]);
+  // game.update();
+});
