@@ -11,6 +11,8 @@ class Game {
 
     this.dir = "";
 
+    this.isNew = false;
+
     this.init();
     this.listener();
   }
@@ -58,17 +60,32 @@ class Game {
   generateFood() {
     setTimeout(() => {
       if (this.foods.length < 5) {
-        this.foods.push(
-          new Food({
-            x: this.random(0, ver) * width,
-            y: this.random(0, hor) * width,
-          })
-        );
+        let done = false;
+        while (!done) {
+          let x = this.random(0, ver) * width;
+          let y = this.random(0, hor) * width;
+          if (this.inPos(x, y)) continue;
+          else {
+            this.foods.push(
+              new Food({
+                x: this.random(0, ver) * width,
+                y: this.random(0, hor) * width,
+              })
+            );
+            done = true;
+          }
+        }
       }
       this.generateFood();
     }, 3000);
   }
-
+  //   check in pos
+  inPos(x, y) {
+    this.snake.body.forEach((b, idx) => {
+      if (b.x == x && y.x == y) return true;
+    });
+    return false;
+  }
   //   draw the stripped background
   drawBg() {
     let color;
@@ -158,6 +175,9 @@ class Game {
 
           this.score++;
 
+          this.isNew = true;
+          this.addLength();
+
           // generate food again
           this.foods.push(
             new Food({
@@ -171,14 +191,24 @@ class Game {
 
     scoreDiv.innerHTML = game.score;
   }
-
+  addLength() {
+    let last = this.snake.body[this.snake.body.length - 1];
+    if (this.isNew) {
+      this.snake.body.push({
+        x: last.x,
+        y: last.y,
+      });
+    }
+    this.isNew = false;
+  }
   checkLose() {
-    // this.snake.body.forEach((b, i) => {
-    //   if (this.snake.body[0].x == b.x && this.snake.body[0].y == b.y) {
-    //     // console.log(this.snake.body[0].x, b.x);
-    //     // clearInterval(gameInterval);
-    //     // alert(`Game Over: High Score: ${this.score}`);
-    //   }
-    // });
+    for (let i = 1; i < this.snake.body.length; i++) {
+      let b = this.snake.body[i];
+      if (this.snake.body[0].x == b.x && this.snake.body[0].y == b.y) {
+        // console.log([this.snake.body[0].x, b.x], [this.snake.body[0].y, b.y]);
+        clearInterval(gameInterval);
+        alert(`Game Over: High Score: ${this.score}`);
+      }
+    }
   }
 }
