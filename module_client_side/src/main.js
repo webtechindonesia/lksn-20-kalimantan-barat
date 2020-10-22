@@ -7,6 +7,11 @@ const startBtn = document.querySelector(".btn-start");
 const inputName = document.querySelector(".form-group input");
 const instructions = document.querySelector(".instructions");
 
+let playerName = "";
+
+const scoreDiv = document.querySelector(".score div");
+const timeDiv = document.querySelector(".time div");
+
 const ver = 48;
 const hor = 30;
 
@@ -15,6 +20,8 @@ let height = h / hor;
 
 let time = 0;
 let interval = 100;
+
+let gameInterval;
 
 window.onload = init();
 
@@ -33,8 +40,20 @@ function update() {
   time = 0;
 }
 
-setInterval(update, 100);
+gameInterval = setInterval(update, 100);
 
 setInterval(() => {
   game.time++;
+
+  let hour = Math.floor(game.time / 3600);
+  let minute = Math.floor((game.time - hour * 3600) / 60);
+  let second = game.time - (hour * 3600 + minute * 60);
+
+  timeDiv.innerHTML = `${pad(hour)}:${pad(minute)}:${pad(second)}`;
 }, 1000);
+
+function pad(val) {
+  let value = val.toString();
+  if (value.length < 2) return `0${value}`;
+  return value;
+}

@@ -41,7 +41,33 @@ class Game {
         })
       );
     }
+
+    this.generateFood();
+    this.removeFood();
   }
+  //   remove food when 5 second reached
+  removeFood() {
+    setTimeout(() => {
+      if (this.foods.length > 3) {
+        this.foods.shift();
+      }
+      this.removeFood();
+    }, 5000);
+  }
+  generateFood() {
+    setTimeout(() => {
+      if (this.foods.length < 5) {
+        this.foods.push(
+          new Food({
+            x: this.random(0, ver) * width,
+            y: this.random(0, hor) * width,
+          })
+        );
+      }
+      this.generateFood();
+    }, 3000);
+  }
+
   //   draw the stripped background
   drawBg() {
     let color;
@@ -63,6 +89,7 @@ class Game {
   //   listener to key WSAD key to move the snake
   listener() {
     inputName.addEventListener("keyup", (e) => {
+      playerName = e.target.value;
       if (e.target.value == "") startBtn.disabled = true;
       else startBtn.disabled = false;
     });
@@ -97,6 +124,8 @@ class Game {
 
   //   update the entire game canvas
   update() {
+    this.checkLose();
+
     this.snake.update();
 
     this.foods.forEach((food) => {
@@ -109,6 +138,8 @@ class Game {
           this.snake.length++;
           this.foods.splice(idx, 1);
 
+          this.score++;
+
           // generate food again
           this.foods.push(
             new Food({
@@ -119,5 +150,17 @@ class Game {
         }
       });
     });
+
+    scoreDiv.innerHTML = game.score;
+  }
+
+  checkLose() {
+    // this.snake.body.forEach((b, i) => {
+    //   if (this.snake.body[0].x == b.x && this.snake.body[0].y == b.y) {
+    //     // console.log(this.snake.body[0].x, b.x);
+    //     // clearInterval(gameInterval);
+    //     // alert(`Game Over: High Score: ${this.score}`);
+    //   }
+    // });
   }
 }
