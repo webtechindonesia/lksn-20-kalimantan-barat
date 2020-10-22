@@ -44,8 +44,10 @@ class Snake {
     });
   }
 
-  update() {
+  update({ dx, dy }) {
+    // console.log({ dx, dy });
+
+    this.body.unshift({ x: this.head.x + dx, y: this.head.y + dy });
     this.draw();
-    this.body.unshift({ x: this.head.x + this.snakeSize, y: this.head.y });
   }
 }

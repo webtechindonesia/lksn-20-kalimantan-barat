@@ -47,6 +47,12 @@ class Game {
     startBtn.addEventListener("click", () => {
       this.start();
     });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode == 38) {
+        game.snake.update({ dx: 0, dy: -width });
+      }
+    });
   }
 
   start() {
@@ -55,6 +61,6 @@ class Game {
   }
 
   update() {
-    this.snake.update();
+    this.snake.update({ dx: width, dy: 0 });
   }
 }
