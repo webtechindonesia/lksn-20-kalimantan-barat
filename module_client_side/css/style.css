@@ -5,3 +5,102 @@
   outline: none;
   font-family: "Segoe UI";
 }
+
+html,
+body {
+  background: #201770;
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 960px;
+  height: 600px;
+}
+
+ul {
+  list-style: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.instructions {
+  z-index: 999999999;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.instructions h1 {
+  margin-bottom: 10px;
+}
+
+:root {
+  --primary: #5d96d4;
+  --active: #1c4674;
+}
+
+.btn {
+  padding: 12px 32px;
+  color: white;
+  background: var(--primary);
+  transition: 0.3s;
+  border-radius: 100px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+  text-transform: uppercase;
+  border: 1px solid var(--active);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+input {
+  border-radius: 5px;
+  border: 2px solid var(--active);
+  background: rgb(93 150 212 / 41%);
+  padding: 15px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.btn:active {
+  background: var(--active);
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+.game-wrapper {
+  position: relative;
+}
+
+.control {
+  position: absolute;
+}

@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phytons</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
-        <div class="instructions">
+        <div class="instructions visible" aria-modal="true">
             <h1>Instructions</h1>
-            <ul class="ins">
-                <li>To move phyton, player can use arrow keys or “WASD”</li>
-                <li>North with up arrow or ‘w’</li>
-                <li>South with down arrow or ‘s’</li>
-                <li>East with right arrow or ‘d’</li>
-                <li>West with left arrow or ‘a’</li>
-                <li>Phyton’s starting point is in the middle of board and moving east (from left to right)
+            <ul class="instruction-list">
+                <li>1. To move phyton, player can use arrow keys or “WASD”</li>
+                <li>2. North with up arrow or ‘w’</li>
+                <li>3. South with down arrow or ‘s’</li>
+                <li>4. East with right arrow or ‘d’</li>
+                <li>5. West with left arrow or ‘a’</li>
+                <li>6. Phyton’s starting point is in the middle of board and moving east (from left to right)
                     automatically 4 grid per second. The phyton moves only north, south, east, or west.</li>
-                <li>If phyton head hit board edge, then its head should appear on the opposite edge.</li>
-                <li>Player can cancel the rewind feature using “Cancel Rewind” button.</li>
+                <li>7. If phyton head hit board edge, then its head should appear on the opposite edge.</li>
+                <li>8. Player can cancel the rewind feature using “Cancel Rewind” button.</li>
             </ul>
-            <div class="control">
+            <div class="form-group">
                 <input type="text" name="name" id="name" class="name">
-                <button class="btn btn-start">Start</button>
+                <button aria-controls="submit" class="btn btn-start">Start</button>
             </div>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="control">
+                <div class="score">
+                    Score:
+                    <div>6</div>
+                </div>
+                <div class="time">
+                    Time:
+                    <div>30:00</div>
+                </div>
+            </div>
+            <canvas id="canvas" width="960" height="600"></canvas>
         </div>
     </div>
 
