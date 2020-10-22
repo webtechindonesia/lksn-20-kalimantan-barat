@@ -34,3 +34,7 @@ function update() {
 }
 
 setInterval(update, 100);
+
+setInterval(() => {
+  game.time++;
+}, 1000);

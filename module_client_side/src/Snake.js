@@ -19,6 +19,9 @@ class Snake {
     this.moverY = 0;
 
     this.init();
+
+    this.dx = width;
+    this.dy = 0;
     // this.update();
   }
 
@@ -45,16 +48,35 @@ class Snake {
     });
   }
 
-  update({ dx, dy }) {
-    // console.log({ dx, dy });
-
-    this.body.unshift({ x: this.head.x + dx, y: this.head.y + dy });
-    this.body.pop();
-    if (this.length > 6) {
+  update(prop) {
+    // let dx = this.dx;
+    // let dy = this.dy;
+    if (prop !== undefined) {
+      this.dx = prop.dx;
+      this.dy = prop.dy;
     }
+
+    this.body.unshift({ x: this.head.x + this.dx, y: this.head.y + this.dy });
+    this.body.pop();
 
     this.head = this.body[0];
 
     this.draw();
+
+    this.checkBoundary();
+  }
+
+  checkBoundary() {
+    if (this.head.x > w) {
+      this.head.x = 0;
+    } else if (this.head.x < 0) {
+      this.head.x = w + width;
+    }
+
+    if (this.head.y > h) {
+      this.head.y = 0;
+    } else if (this.head.y < 0) {
+      this.head.y = h + width;
+    }
   }
 }

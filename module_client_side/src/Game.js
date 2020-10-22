@@ -15,13 +15,18 @@ class Game {
     this.listener();
   }
 
+  //   initialize the game
   init() {
     this.drawBg();
     this.generate();
+
+    this.dir = "right";
   }
+  //   utility function get random integer based on the passed min and max value
   random(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
+  //   generate the snake and the food
   generate() {
     this.snake = new Snake({
       x: w / 2 - 4 * width,
@@ -37,6 +42,7 @@ class Game {
       );
     }
   }
+  //   draw the stripped background
   drawBg() {
     let color;
     for (let i = 0; i < 48; i++) {
@@ -54,6 +60,7 @@ class Game {
       }
     }
   }
+  //   listener to key WSAD key to move the snake
   listener() {
     inputName.addEventListener("keyup", (e) => {
       if (e.target.value == "") startBtn.disabled = true;
@@ -81,16 +88,36 @@ class Game {
     });
   }
 
+  //   start the game when the start button clicked
   start() {
     instructions.classList.remove("visible");
+
     // this.drawBg();
   }
 
+  //   update the entire game canvas
   update() {
-    this.snake.update({ dx: width, dy: 0 });
+    this.snake.update();
 
     this.foods.forEach((food) => {
       food.draw();
+    });
+
+    this.snake.body.forEach((b, i) => {
+      this.foods.forEach((f, idx) => {
+        if (f.x == b.x && f.y == b.y) {
+          this.snake.length++;
+          this.foods.splice(idx, 1);
+
+          // generate food again
+          this.foods.push(
+            new Food({
+              x: this.random(0, ver) * width,
+              y: this.random(0, hor) * width,
+            })
+          );
+        }
+      });
     });
   }
 }
