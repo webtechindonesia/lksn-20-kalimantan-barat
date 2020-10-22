@@ -12,6 +12,11 @@ let playerName = "";
 const scoreDiv = document.querySelector(".score div");
 const timeDiv = document.querySelector(".time div");
 
+const tempR = document.querySelector("#tempR");
+const rewindBtn = document.querySelector("#rewind");
+const cancelBtn = document.querySelector("#cancel");
+const rewindContainer = document.querySelector("#rewind-container");
+
 const ver = 48;
 const hor = 30;
 
@@ -25,12 +30,14 @@ let gameInterval;
 
 window.onload = init();
 
+// initialization function
 function init() {
   game = new Game();
 
   update();
 }
 
+// update the game per frame
 function update() {
   ctx.clearRect(0, 0, w, h);
 
@@ -40,8 +47,10 @@ function update() {
   time = 0;
 }
 
+// game interval per 100 miliseconds
 gameInterval = setInterval(update, 100);
 
+// update timer
 setInterval(() => {
   game.time++;
 
@@ -52,6 +61,7 @@ setInterval(() => {
   timeDiv.innerHTML = `${pad(hour)}:${pad(minute)}:${pad(second)}`;
 }, 1000);
 
+// utility function to pad zero at the begining of the time
 function pad(val) {
   let value = val.toString();
   if (value.length < 2) return `0${value}`;

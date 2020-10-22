@@ -5,7 +5,7 @@ class Food {
 
     this.size = width;
   }
-
+  //   draw the food
   draw() {
     ctx.beginPath();
     ctx.rect(this.x, this.y, this.size, this.size);

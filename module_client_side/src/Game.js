@@ -54,6 +54,7 @@ class Game {
       this.removeFood();
     }, 5000);
   }
+  //   generate random food when reached 3 seconds
   generateFood() {
     setTimeout(() => {
       if (this.foods.length < 5) {
@@ -88,6 +89,23 @@ class Game {
   }
   //   listener to key WSAD key to move the snake
   listener() {
+    tempR.addEventListener("click", (e) => {
+      rewindContainer.classList.remove("hidden");
+      tempR.classList.add("hidden");
+    });
+
+    cancelBtn.addEventListener("click", (e) => {
+      rewindContainer.classList.add("hidden");
+      tempR.classList.remove("hidden");
+    });
+
+    document.addEventListener("keyup", (e) => {
+      if (e.keyCode == 32) {
+        rewindContainer.classList.toggle("hidden");
+        tempR.classList.toggle("hidden");
+      }
+    });
+
     inputName.addEventListener("keyup", (e) => {
       playerName = e.target.value;
       if (e.target.value == "") startBtn.disabled = true;

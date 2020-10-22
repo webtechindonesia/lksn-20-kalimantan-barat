@@ -25,6 +25,7 @@ class Snake {
     // this.update();
   }
 
+  //   generate initial snake length (6)
   init() {
     for (let len = this.length; len > 1; len--) {
       this.body.push({
@@ -35,6 +36,7 @@ class Snake {
     this.head = this.body[0];
   }
 
+  //   draw the snake
   draw() {
     this.body.forEach((b, idx) => {
       ctx.beginPath();
@@ -48,9 +50,8 @@ class Snake {
     });
   }
 
+  // update the snake move
   update(prop) {
-    // let dx = this.dx;
-    // let dy = this.dy;
     if (prop !== undefined) {
       this.dx = prop.dx;
       this.dy = prop.dy;
@@ -66,6 +67,7 @@ class Snake {
     this.checkBoundary();
   }
 
+  //   check snake wall boundary
   checkBoundary() {
     if (this.head.x > w) {
       this.head.x = 0;
