@@ -22,23 +22,29 @@
                 <li>8. Player can cancel the rewind feature using “Cancel Rewind” button.</li>
             </ul>
             <div class="form-group">
-                <input type="text" name="name" id="name" class="name">
-                <button aria-controls="submit" class="btn btn-start">Start</button>
+                <input autocomplete="false" type="text" name="name" id="name" class="name">
+                <button disabled="true" aria-controls="submit" class="btn btn-start">Play</button>
             </div>
         </div>
 
         <div class="game-wrapper">
-            <div class="control">
-                <div class="score">
-                    Score:
-                    <div>6</div>
+            <div class="game">
+                <div class="control">
+                    <div class="score">
+                        Score:
+                        <div>6</div>
+                    </div>
+                    <div class="logo">
+                        <img src="design/logo.png" alt="Logo">
+                    </div>
+                    <div class="time">
+                        Time:
+                        <div>30:00</div>
+                    </div>
                 </div>
-                <div class="time">
-                    Time:
-                    <div>30:00</div>
-                </div>
+                <canvas id="canvas" width="960" height="600">
+                </canvas>
             </div>
-            <canvas id="canvas" width="960" height="600"></canvas>
         </div>
     </div>
 
