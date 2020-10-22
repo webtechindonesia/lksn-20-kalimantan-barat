@@ -25,6 +25,9 @@ function init() {
 }
 
 function update() {
+  ctx.clearRect(0, 0, w, h);
+
+  game.drawBg();
   game.update();
 
   time = 0;

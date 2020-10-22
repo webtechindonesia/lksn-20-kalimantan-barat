@@ -23,7 +23,7 @@ class Snake {
   }
 
   init() {
-    for (let len = 0; len < this.length; len++) {
+    for (let len = this.length; len > 1; len--) {
       this.body.push({
         x: len * this.snakeSize + this.x + this.moverX,
         y: this.snakeSize + this.y + this.moverY,
@@ -38,6 +38,7 @@ class Snake {
       ctx.rect(b.x, b.y, this.snakeSize, this.snakeSize);
       ctx.fillStyle = "orange";
       ctx.strokeStyle = "darkorange";
+      ctx.lineWidth = 4;
       ctx.fill();
       ctx.stroke();
       ctx.closePath();
@@ -48,6 +49,12 @@ class Snake {
     // console.log({ dx, dy });
 
     this.body.unshift({ x: this.head.x + dx, y: this.head.y + dy });
+    this.body.pop();
+    if (this.length > 6) {
+    }
+
+    this.head = this.body[0];
+
     this.draw();
   }
 }
