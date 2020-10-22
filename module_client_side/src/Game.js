@@ -17,11 +17,9 @@ class Game {
   }
   generate() {
     this.snake = new Snake({
-      x: w / 2,
-      h: h / 2,
+      x: w / 2 - 4 * width,
+      y: h / 2 - 1 * width,
     });
-
-    this.snake.update();
   }
   drawBg() {
     let color;
@@ -56,5 +54,7 @@ class Game {
     // this.drawBg();
   }
 
-  update() {}
+  update() {
+    this.snake.update();
+  }
 }

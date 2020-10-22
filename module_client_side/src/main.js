@@ -13,8 +13,21 @@ const hor = 30;
 let width = w / ver;
 let height = h / hor;
 
+let time = 0;
+let interval = 100;
+
 window.onload = init();
 
 function init() {
   game = new Game();
+
+  update();
 }
+
+function update() {
+  game.update();
+
+  time = 0;
+}
+
+setInterval(update, 100);
