@@ -101,6 +101,7 @@ input {
 
 canvas {
   /* border: 1px solid black; */
+  margin-top: 80px;
 }
 
 .game-wrapper {
